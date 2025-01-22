@@ -1,7 +1,12 @@
 :root {
+    /* Базовые настройки шрифта */
+
     --colorBlack: #000000;
     --colorWhite: #ffffff;
     --colorShamrock: #3ECF8E;
+    --colorDoveGray: #646464;
+    --colorLochmara: #018AD9;
+    --colorCodGray: #1D1B1B;
     --colorShamrockAlpha20: #3ECF8E33;
 
     --baseFontSize: 2rem;

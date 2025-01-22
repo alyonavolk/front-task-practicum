@@ -29,6 +29,10 @@ h2 {
     }
 }
 
+.main {
+    padding-bottom: 10.3125rem;
+}
+
 .link {
     color: var(--colorBlack);
     transition: var(--baseTransition) all;
@@ -36,6 +40,51 @@ h2 {
     &:hover {
         color: var(--colorShamrock);
     }
+}
+
+h1 {
+    /* Максимальный размер + разница * (вьюпорт - минимальная ширина) / разница между контейнерами (макс и мин)  */
+    font-family: Montserrat, Roboto, serif;
+    font-size: calc(6rem + 18 * (100vw - 320px) / 1300);
+    font-weight: 700;
+    line-height: calc(3.5rem + 20 * (100vw - 320px) / 1300);
+}
+
+h2 {
+    /* Максимальный размер + разница * (вьюпорт - минимальная ширина) / разница между контейнерами (макс и мин)  */
+    font-family: Montserrat, Roboto, serif;
+    font-size: calc(2rem + 18 * (100vw - 320px) / 1300);
+    font-weight: 700;
+    line-height: calc(2.5rem + 20 * (100vw - 320px) / 1300);
+
+}
+
+.isTextCenter {
+    text-align: center;
+}
+
+.isTextUppercase {
+    text-transform: uppercase;
+}
+
+.isColorDoveGray {
+    color: var(--colorDoveGray);
+}
+
+.isColorLochmara {
+    color: var(--colorLochmara);
+}
+
+.isMb12 {
+    margin-bottom: 1.5rem;
+}
+
+.isMb28 {
+    margin-bottom: 1.75rem;
+}
+
+.isMb50 {
+    margin-bottom: 3.125rem;
 }
 
 .btn {
@@ -48,6 +97,49 @@ h2 {
     &:hover {
         background-color: var(--colorShamrockAlpha20);
         color: var(--colorShamrock);
+    }
+
+    &.btn--isNotRadius {
+        border-radius: 0;
+    }
+}
+
+.input {
+    width: 100%;
+    height: 100%;
+    padding: 0.875rem 3rem;
+    box-shadow: 0px 4px 20px 0px #0000001F;
+    color: var(--colorBlack);
+    transition: var(--baseTransition) all;
+
+    &::placeholder {
+        color: var(--colorDoveGray);
+    }
+
+    &:hover, &:focus {
+        box-shadow: 0px 4px 20px 0px #0000003F;
+    }
+}
+
+.form {
+    .formWrapper {
+        max-width: 68.125rem;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+
+        .input {
+            max-width: 54.375rem;
+            min-height: 5.5rem;
+        }
+
+        .btn {
+            max-width: 13.75rem;
+            width: 100%;
+            min-height: 5.5rem;
+            font-size: calc(1.5rem + 10 * (100vw - 320px) / 1300);
+            font-weight: 700;
+        }
     }
 }
 
@@ -64,4 +156,10 @@ h2 {
         flex-wrap: wrap;
         gap: 2.5rem;
     }
+}
+
+.footer {
+    width: 100%;
+    padding: 6.25rem var(--basePadding) 5.625rem;
+    background: var(--colorCodGray);
 }
