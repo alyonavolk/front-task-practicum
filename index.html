@@ -12,12 +12,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@100..900&display=swap" rel="stylesheet">
     <title>Sk.lit</title>
+    <meta name="description" content="Краткое описание страницы">
+    <meta name="keywords" content="Портфолио">
+    <meta name="author" content="Волкова Алёна">
 </head>
 <body class="pageLayout">
     <header class="header container">
         <div class="header__logo">
             <img src="./img/logo.png" alt="logo" loading="lazy" width="78" height="37">
         </div>
+        <button class="header__burger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <nav class="header__nav">
             <ul class="header__navList">
                 <li class="header__navItem">
@@ -40,32 +48,144 @@
     </header>
     <main class="main">
         <section class="section hero container">
-            <p class="isColorLochmara isTextUppercase">I’m a ui/ux designer</p>
-            <h1 class="isMb12">Hey everyone <br />I am Arron</h1>
-            <p class="isFontSize16 isColorDoveGray">Freelanc Web & Mobile  UI/UX Designer & Love to play video game </p>
+            <div class="hero__rightContent">
+                <p class="isColorLochmara isTextUppercase">I’m a ui/ux designer</p>
+                <h1 class="isMb12">Hey everyone <br >I am Arron</h1>
+                <p class="isFontSize16 isColorDoveGray isMb50">Freelanc Web & Mobile  UI/UX Designer & Love to play video game </p>
+                <a class="btn btn--isPdS" href="#">Learn about me <span class="btn__icon">&#8594;</span></a>
+            </div>
         </section>
-        <section class="section container" id="services">
-            <h2>I will do it</h2>
+        <section class="section container isTextCenter skills" id="services">
+            <h2 class="isMb32">I will do it</h2>
+            <ul class="skills__list">
+                <li class="skills__listItem">
+                    <div class="skillsCard">
+                        <div class="skillsCard__icon">
+                            <img src="./img/icon-ux-interface.png" alt="icon-ux-interface" >
+                        </div>
+                        <p class="skillsCard__title">UX Design</p>
+                        <p class="skillsCard__desc">lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an </p>
+                        <a class="btn btn--isPdXS" href="#">Explore	<span class="btn__icon">&#8594;</span></a>
+                    </div>
+                </li>
+                <li class="skills__listItem">
+                    <div class="skillsCard">
+                        <div class="skillsCard__icon">
+                            <img src="./img/icon-front.png" alt="icon-front" >
+                        </div>
+                        <p class="skillsCard__title">Font-end Developmenent</p>
+                        <p class="skillsCard__desc">lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an </p>
+                        <a class="btn btn--isPdXS" href="#">Explore	<span class="btn__icon">&#8594;</span></a>
+                    </div>
+                </li>
+                <li class="skills__listItem">
+                    <div class="skillsCard">
+                        <div class="skillsCard__icon">
+                            <img src="./img/icon-back.png" alt="icon-back" >
+                        </div>
+                        <p class="skillsCard__title">Brand Identitty Design</p>
+                        <p class="skillsCard__desc">lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an </p>
+                        <a class="btn btn--isPdXS" href="#">Explore	<span class="btn__icon">&#8594;</span></a>
+                    </div>
+                </li>
+            </ul>
         </section>
-        <section class="section container" id="portfolio">
-            <h2>My Selected work</h2>
-        </section>
-        <section class="section container" id="about">
-            <h2>Why Hire Me?</h2>
+        <!--<section class="section container works" id="portfolio">
+            <h2 class="isTextCenter isMb48">My Selected work</h2>
+            <div class="worksList">
+                <div class="worksList__item">
+                    <img src="./img/work4.png" alt="work4" >
+                </div>
+                <div class="worksList__item">
+                    <img src="./img/work1.png" alt="work1" >
+                </div>
+                <div class="worksList__item">
+                    <img src="./img/work2.png" alt="work2" >
+                </div>
+                <div class="worksList__item">
+                    <img src="./img/work3.png" alt="work3" >
+                </div>
+            </div>
+        </section>-->
+        <section class="section container experience" id="about">
+            <div class="experienceBlockLeft">
+                <ul class="experienceList">
+                    <li class="experienceList__item">
+                        <p class="experienceList__itemTitle">UI Designer At Microsoft</p>
+                        <p>March 2001. January 2007</p>
+                    </li>
+                    <li class="experienceList__item">
+                        <p class="experienceList__itemTitle">Product Designer at apple</p>
+                        <p>jun 2008-january2012 </p>
+                    </li>
+                    <li class="experienceList__item">
+                        <p class="experienceList__itemTitle">senior Designer At Design Lab</p>
+                        <p>February 2009-February 2012</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="experienceBlockRight">
+                <h2 class="isMb24">Why Hire Me?</h2>
+                <p class="isColorDoveGray isMb44">lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an </p>
+                <a class="btn btn--isPdS" href="#">View All Work</a>
+            </div>
         </section>
         <section class="section container" id="contact">
             <h2 class="isMb28 isTextCenter">Submit For Updated</h2>
-            <p class="isTextCenter isColorDoveGray isMb50">Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry <br /> Lorem Ipsum has been the industry's standard dummy</p>
+            <p class="isTextCenter isColorDoveGray isMb50">Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry <br > Lorem Ipsum has been the industry's standard dummy</p>
             <form class="form">
                 <div class="formWrapper">
-                    <input name="email" type="text" class="input" placeholder="Email Address">
+                    <input name="email" type="text" class="input" placeholder="Email Address" required>
                     <button class="btn btn--isNotRadius" type="submit">Submit</button>
                 </div>
             </form>
         </section>
     </main>
     <footer class="footer">
-        <p>logo</p>
+        <div class="footer__info">
+            <p class="footer__logo">LOGO</p>
+            <p class="footer__desc isMb48">Lorem Ipsum Lorem Ipsum is simply dummy text of the and typesetting industry</p>
+            <div class="footer__contacts">
+                <a href="#"><img src="./img/icon-twitter.svg" alt="twitter" ></a>
+                <a href="#"><img src="./img/icon-facebook.svg" alt="facebook" ></a>
+                <a href="#"><img src="./img/icon-dribble.svg" alt="dribble" ></a>
+            </div>
+        </div>
+        <div class="footer__links">
+            <ul class="footerLinks">
+                <li class="footerLinks__title">Product</li>
+                <li class="footerLinks__item"><a href="#">Fooodn Menu</a></li>
+                <li class="footerLinks__item"><a href="#">Tutorial Cook</a></li>
+                <li class="footerLinks__item"><a href="#">Blogs Post</a></li>
+                <li class="footerLinks__item"><a href="#">Blogs Post</a></li>
+                <li class="footerLinks__item"><a href="#">Blogs Post</a></li>
+            </ul>
+        </div>
+        <div class="footer__links">
+            <ul class="footerLinks">
+                <li class="footerLinks__title">Resources</li>
+                <li class="footerLinks__item"><a href="#">Photos Gallary</a></li>
+                <li class="footerLinks__item"><a href="#">Portfolio</a></li>
+                <li class="footerLinks__item"><a href="#">Members Stories</a></li>
+                <li class="footerLinks__item"><a href="#">Fan Fact</a></li>
+            </ul>
+        </div>
+        <div class="footer__links">
+            <ul class="footerLinks">
+                <li class="footerLinks__title">Company </li>
+                <li class="footerLinks__item"><a href="#">Patnership</a></li>
+                <li class="footerLinks__item"><a href="#">Terms of Use</a></li>
+                <li class="footerLinks__item"><a href="#">Privecy</a></li>
+                <li class="footerLinks__item"><a href="#">Sitemap</a></li>
+                <li class="footerLinks__item"><a href="#">Coustomer Service</a></li>
+            </ul>
+        </div>
+        <div class="footer__connect">
+            <p class="footerLinks__title">Get in Touch</p>
+            <p class="footer__desc isMb32">Lorem Ipsum Lorem Ipsum is simply dummy text of the printing</p>
+            <a class="btn btn--isLight" href="#">Email Address	<span class="btn__icon">&#8594;</span></a>
+        </div>
     </footer>
+    <script defer src="./js/index.js" ></script>
 </body>
 </html>

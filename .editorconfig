@@ -1,0 +1,23 @@
+# Указываем, что файл является EditorConfig
+root = true
+
+# Общие настройки для всех файлов
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 4
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Настройки для файлов .md (Markdown)
+[*.md]
+trim_trailing_whitespace = false
+
+# Настройки для JSON файлов
+[*.json]
+indent_size = 2
+
+# Настройки для Makefile
+[Makefile]
+indent_style = tab
