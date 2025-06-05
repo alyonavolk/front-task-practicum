@@ -19,7 +19,7 @@
 <body class="pageLayout">
     <header class="header container">
         <div class="header__logo">
-            <img src="./img/logo.png" alt="logo" loading="lazy" width="78" height="37">
+            <a href="#main" data-js-header-link="#main"><img src="./img/logo.png" alt="logo" loading="lazy" width="78" height="37"></a>
         </div>
         <button class="header__burger" aria-label="Menu">
             <span></span>
@@ -29,30 +29,30 @@
         <nav class="header__nav">
             <ul class="header__navList">
                 <li class="header__navItem">
-                    <a class="link" href="#about">About</a>
+                    <a class="link" href="#about" data-js-header-link="#about">About</a>
                 </li>
                 <li class="header__navItem">
-                    <a class="link" href="#services">Services</a>
+                    <a class="link" href="#services" data-js-header-link="#services">Services</a>
                 </li>
                 <li class="header__navItem">
-                    <a class="link" href="#portfolio">Portfolio</a>
+                    <a class="link" href="#portfolio" data-js-header-link="#portfolio">Portfolio</a>
                 </li>
                 <li class="header__navItem">
-                    <a class="link" href="#contact">Contact</a>
+                    <a class="link" href="#contact" data-js-header-link="#contact">Contact</a>
                 </li>
             </ul>
         </nav>
         <div class="header__lk">
-            <button class="btn">Sing in</button>
+            <button class="btn" data-js-modal-open="">Sing in</button>
         </div>
     </header>
-    <main class="main">
+    <main class="main" id="main">
         <section class="section hero container">
             <div class="hero__rightContent">
                 <p class="isColorLochmara isTextUppercase">I’m a ui/ux designer</p>
                 <h1 class="isMb12">Hey everyone <br >I am Arron</h1>
                 <p class="isFontSize16 isColorDoveGray isMb50">Freelanc Web & Mobile  UI/UX Designer & Love to play video game </p>
-                <a class="btn btn--isPdS" href="#">Learn about me <span class="btn__icon">&#8594;</span></a>
+                <a class="btn btn--isPdS" href="#about">Learn about me <span class="btn__icon">&#8594;</span></a>
             </div>
         </section>
         <section class="section container isTextCenter skills" id="services">
@@ -130,16 +130,30 @@
                 <a class="btn btn--isPdS" href="#">View All Work</a>
             </div>
         </section>
-        <section class="section container" id="contact">
+        <section class="section section--isNotMb container" id="contact">
             <h2 class="isMb28 isTextCenter">Submit For Updated</h2>
             <p class="isTextCenter isColorDoveGray isMb50">Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry <br > Lorem Ipsum has been the industry's standard dummy</p>
-            <form class="form">
+            <form class="form" data-js-form="">
                 <div class="formWrapper">
-                    <input name="email" type="text" class="input" placeholder="Email Address" required>
+                    <input id="email" name="email" type="text" class="input" placeholder="Email Address" data-js-input-required="">
                     <button class="btn btn--isNotRadius" type="submit">Submit</button>
                 </div>
+                <div class="formMsg" data-js-form-msg=""></div>
             </form>
         </section>
+        <div class="modalOverlay" data-js-modal-overlay="">
+            <div class="modal" data-js-modal="">
+                <div class="modal__header">
+                    <h3>Login</h3>
+                    <span class="closeModalBtn" data-js-modal-close="">&times;</span>
+                </div>
+                <form class="loginForm" data-js-form="">
+                    <input id="login" name="login" type="text" class="input" placeholder="Email Address" data-js-input-required="">
+                    <div class="formMsg" data-js-form-msg=""></div>
+                    <button class="btn" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
     </main>
     <footer class="footer">
         <div class="footer__info">
@@ -154,36 +168,36 @@
         <div class="footer__links">
             <ul class="footerLinks">
                 <li class="footerLinks__title">Product</li>
-                <li class="footerLinks__item"><a href="#">Fooodn Menu</a></li>
-                <li class="footerLinks__item"><a href="#">Tutorial Cook</a></li>
-                <li class="footerLinks__item"><a href="#">Blogs Post</a></li>
-                <li class="footerLinks__item"><a href="#">Blogs Post</a></li>
-                <li class="footerLinks__item"><a href="#">Blogs Post</a></li>
+                <li class="footerLinks__item"><a class="link" href="#">Fooodn Menu</a></li>
+                <li class="footerLinks__item"><a class="link" href="#">Tutorial Cook</a></li>
+                <li class="footerLinks__item"><a class="link" href="#">Blogs Post</a></li>
+                <li class="footerLinks__item"><a class="link" href="#">Blogs Post</a></li>
+                <li class="footerLinks__item"><a class="link" href="#">Blogs Post</a></li>
             </ul>
         </div>
         <div class="footer__links">
             <ul class="footerLinks">
                 <li class="footerLinks__title">Resources</li>
-                <li class="footerLinks__item"><a href="#">Photos Gallary</a></li>
-                <li class="footerLinks__item"><a href="#">Portfolio</a></li>
-                <li class="footerLinks__item"><a href="#">Members Stories</a></li>
-                <li class="footerLinks__item"><a href="#">Fan Fact</a></li>
+                <li class="footerLinks__item"><a class="link" href="#">Photos Gallary</a></li>
+                <li class="footerLinks__item"><a class="link" href="#">Portfolio</a></li>
+                <li class="footerLinks__item"><a class="link" href="#">Members Stories</a></li>
+                <li class="footerLinks__item"><a class="link" href="#">Fan Fact</a></li>
             </ul>
         </div>
         <div class="footer__links">
             <ul class="footerLinks">
                 <li class="footerLinks__title">Company </li>
-                <li class="footerLinks__item"><a href="#">Patnership</a></li>
-                <li class="footerLinks__item"><a href="#">Terms of Use</a></li>
-                <li class="footerLinks__item"><a href="#">Privecy</a></li>
-                <li class="footerLinks__item"><a href="#">Sitemap</a></li>
-                <li class="footerLinks__item"><a href="#">Coustomer Service</a></li>
+                <li class="footerLinks__item"><a class="link" href="#">Patnership</a></li>
+                <li class="footerLinks__item"><a class="link" href="#">Terms of Use</a></li>
+                <li class="footerLinks__item"><a class="link" href="#">Privecy</a></li>
+                <li class="footerLinks__item"><a class="link" href="#">Sitemap</a></li>
+                <li class="footerLinks__item"><a class="link" href="#">Coustomer Service</a></li>
             </ul>
         </div>
         <div class="footer__connect">
             <p class="footerLinks__title">Get in Touch</p>
             <p class="footer__desc isMb32">Lorem Ipsum Lorem Ipsum is simply dummy text of the printing</p>
-            <a class="btn btn--isLight" href="#">Email Address	<span class="btn__icon">&#8594;</span></a>
+            <a class="btn btn--isLight" href="#contact">Email Address	<span class="btn__icon">&#8594;</span></a>
         </div>
     </footer>
     <script defer src="./js/index.js" ></script>

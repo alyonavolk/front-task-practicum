@@ -23,14 +23,20 @@ h2 {
 .pageLayout {
     background: url("../img/bg.png") no-repeat top center;
     background-size: contain;
+    scroll-padding-top: 6rem;
 
     &.isOpenMenu {
+        overflow: hidden;
+    }
+
+    &.isModalOpen {
         overflow: hidden;
     }
 }
 
 .section {
     --sectionMb: var(--basePadding);
+    scroll-margin-top: 6rem;
 
     @media (max-width: 768px) {
         --sectionMb: 3rem;
@@ -43,6 +49,10 @@ h2 {
     &:not(:last-child) {
         margin-bottom: var(--sectionMb);
     }
+
+    &.section--isNotMb {
+        --sectionMb: 0;
+    }
 }
 
 .main {
@@ -52,9 +62,28 @@ h2 {
 .link {
     color: var(--colorBlack);
     transition: var(--baseTransition) all;
+    position: relative;
 
     &:hover {
         color: var(--colorShamrock);
+
+        &:after {
+            opacity: 1;
+            bottom: -0.25rem;
+        }
+    }
+
+    &:after {
+        position: absolute;
+        content: '';
+        display: block;
+        left: 0;
+        width: 100%;
+        bottom: -0.75rem;
+        opacity: 0;
+        height: 1px;
+        background: currentColor;
+        transition: .3s;
     }
 }
 
@@ -64,6 +93,11 @@ h1 {
     font-size: calc(2.5rem + 74 * (100vw - 320px) / 1300);
     font-weight: 700;
     line-height: calc(3rem + 84 * (100vw - 320px) / 1300);
+
+    @media (min-width: 1920px) {
+        font-size: 7.5rem;
+        line-height: 8rem;
+    }
 }
 
 h2 {
@@ -72,6 +106,11 @@ h2 {
     font-size: calc(2rem + 18 * (100vw - 320px) / 1300);
     font-weight: 700;
     line-height: calc(2.5rem + 20 * (100vw - 320px) / 1300);
+
+    @media (min-width: 1920px) {
+        font-size: 5rem;
+        line-height: 6rem;
+    }
 
 }
 
@@ -133,14 +172,49 @@ h2 {
 
 .btn {
     color: var(--colorWhite);
-    background-color: var(--colorShamrock);
     padding: 0.5rem 1.25rem;
     border-radius: 2rem;
     transition: var(--baseTransition) all;
+    position: relative;
+
+    &::before,
+    &::after {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        transition: all 0.3s;
+        content: "";
+    }
+
+    &::before {
+        width: 100%;
+        left: 0;
+        border-radius: 2rem;
+        background-color: var(--colorShamrock);
+        z-index: -1;
+    }
+
+    &::after {
+        width: 0;
+        left: 50%;
+        border: 1px solid transparent;
+        transform: translate(-50%, 0);
+        z-index: 1;
+        border-radius: 2rem;
+    }
 
     &:hover {
-        background-color: var(--colorShamrockAlpha20);
         color: var(--colorShamrock);
+
+        &::before {
+            transform: scale(0, 1);
+        }
+
+        &::after {
+            width: 100%;
+            border-color: var(--colorShamrock);
+            transition-delay: 0.2s;
+        }
     }
 
     .btn__icon {
@@ -151,6 +225,10 @@ h2 {
 
     &.btn--isNotRadius {
         border-radius: 0;
+
+        &::before, &::after  {
+            border-radius: 0;
+        }
     }
 
     &.btn--isPdS {
@@ -211,7 +289,34 @@ h2 {
     }*/
 }
 
+.formMsg {
+    transition: var(--baseTransition) all;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+
+    &.isActive {
+        visibility: visible;
+        opacity: 1;
+        height: 100%;
+    }
+}
+
 .form {
+    position: relative;
+
+    .formMsg {
+        max-width: 68.125rem;
+        margin: 0 auto;
+        padding: 1rem;
+        color: var(--colorPomegranate);
+
+        @media (max-width: 480px) {
+            position: absolute;
+            top: 3.5rem;
+        }
+    }
+
     .formWrapper {
         max-width: 68.125rem;
         width: 100%;
@@ -221,7 +326,7 @@ h2 {
         @media (max-width: 480px) {
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1rem;
+            gap: 2.75rem;
         }
 
         .input {
@@ -239,6 +344,10 @@ h2 {
             min-height: 5.5rem;
             font-size: calc(1.5rem + 10 * (100vw - 320px) / 1300);
             font-weight: 700;
+
+            @media (min-width: 1920px) {
+                font-size: 2rem;
+            }
 
             @media (max-width: 768px) {
                 max-width: 10rem;
@@ -260,7 +369,17 @@ h2 {
     gap: 1rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    &.isScrolling {
+        backdrop-filter: blur(0.75rem);
+    }
+
+    .header__logo, .header__lk {
+        z-index: 10;
+    }
 
     .header__navList {
         display: flex;
@@ -309,11 +428,11 @@ h2 {
     @media (max-width: 768px) {
         .header__nav {
             position: fixed;
-            top: 5rem;
+            top: 0;
             left: 0;
             right: 0;
             background-color: var(--colorWhite);
-            padding: 2rem;
+            padding: 6rem 2rem 2rem;
             width: 100vw;
             height: 100vh;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -328,6 +447,7 @@ h2 {
         .header__navList {
             flex-direction: column;
             align-items: flex-start;
+            gap: 1.5rem;
         }
     }
 }
@@ -355,6 +475,8 @@ h2 {
         display: flex;
         justify-content: space-between;
         gap: var(--skillsListGap);
+        max-width: 100rem;
+        margin: 0 auto;
 
         @media (max-width: 1280px) {
             --skillsListGap: 1rem;
@@ -388,6 +510,10 @@ h2 {
             font-size: calc(1.25rem + 4 * (100vw - 320px) / 1300);
             font-weight: 500;
             padding-bottom: var(--skillsCardTitlePb);
+
+            @media (min-width: 1920px) {
+                font-size: 2rem;
+            }
         }
 
         .skillsCard__desc {
@@ -480,6 +606,10 @@ h2 {
             .experienceList__itemTitle {
                 font-size: calc(1.25rem + 12 * (100vw - 320px) / 1300);
                 margin-bottom: 1rem;
+
+                @media (min-width: 1920px) {
+                    font-size: 2rem;
+                }
             }
         }
     }
@@ -545,11 +675,109 @@ h2 {
         font-size: calc(1.25rem + 4 * (100vw - 320px) / 1300);
         font-weight: 700;
         margin-bottom: var(--footerLinksTitleMb);
+
+        @media (min-width: 1920px) {
+            font-size: 2rem;
+        }
     }
 
     .footer__contacts {
         img {
             max-width: 1.5rem;
         }
+    }
+}
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100dvw;
+    height: 100dvh;
+    background: var(--colorShamrockA20);
+    transition: var(--baseTransition) all;
+    z-index: 15;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+    &.isModalOpen {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+.modal {
+    max-width: 30rem;
+    max-height: 20rem;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    background: var(--colorWhite);
+    padding: 2rem;
+    border-radius: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @media (max-width: 768px) {
+        max-width: 100dvw;
+        max-height: 100dvh;
+    }
+
+    .closeModalBtn {
+        position: absolute;
+        font-size: 3rem;
+        top: -1.5rem;
+        right: 0;
+        transition: var(--baseTransition) all;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--colorShamrock);
+        }
+    }
+
+    .modal__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding-bottom: 2rem;
+
+        h3 {
+            font-size: calc(2rem + 8 * (100vw - 320px) / 1300);
+            font-weight: 700;
+            @media (min-width: 1920px) {
+                font-size: 3rem;
+            }
+        }
+    }
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0.75rem;
+    height: max-content;
+
+    @media (min-width: 769px) {
+        transform: translateY(20%);
+    }
+
+    input {
+        padding: 1rem;
+    }
+
+    .btn {
+        padding: 0.75rem 2rem;
+    }
+
+    .formMsg {
+        color: var(--colorPomegranate);
     }
 }
